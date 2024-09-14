@@ -1,0 +1,30 @@
+<HomeScreen>:
+    BoxLayout:
+        MDScreen:
+            md_bg_color: [33/255, 33/255, 33/255, 1]
+            MDCard:
+                size_hint: None, None
+                size: 320, 420
+                pos_hint: {"center_x": .5, "center_y": .5}
+                elevation: 5
+                md_bg_color: [255/255, 255/255, 255/255, 1]
+                padding: 20
+                spacing: 5
+                orientation: 'vertical'
+                MDLabel:
+                    id: welcome_label
+                    text: "Welcome to the Home Screen!"
+                MDTextField:
+                    id: token_field
+                    text:''
+                    hint_text: "Hidden Field"
+                    opacity: 0
+                    size_hint: (None, None)
+
+                MDFillRoundFlatButton:
+                    id : signout
+                    text: "Signout"  # Replace with your desired button text
+                    font_size: 15
+                    pos_hint: {"center_x": 0.5} 
+                    md_bg_color: [35/255, 59/255, 54/255, 1]
+                    on_release: root.signout()

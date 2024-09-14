@@ -1,0 +1,72 @@
+<LoginScreen>:
+    BoxLayout:
+        MDScreen:
+            md_bg_color: [33/255, 33/255, 33/255, 1]
+            MDCard:
+                size_hint: None, None
+                size: 320, 350
+                pos_hint: {"center_x": .5, "center_y": .5}
+                elevation: 5
+                md_bg_color: [255/255, 255/255, 255/255, 1]
+                padding: 20
+                spacing: 5
+                orientation: 'vertical'
+
+                # Adding items to the card
+                MDLabel:
+                    text: "SignIn"
+                    front_style: "Button"
+                    font_size: "24sp"
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDTextField:
+                    id : mobile_number
+                    hint_text: "Mobile"
+                    icon_right: "cellphone"
+                    size_hint_x: None
+                    width: 220
+                    font_size: 18
+                    pos_hint: {"center_x": 0.5}
+                    required: True
+                    mode: "fill"
+            
+
+                MDFillRoundFlatButton:
+                    id : get_otp
+                    text: "GET-OTP"  # Replace with your desired button text
+                    font_size: 15
+                    pos_hint: {"center_x": 0.5} 
+                    md_bg_color: [35/255, 59/255, 54/255, 1]
+                    on_release: root.get_mobile_number()
+            
+
+                MDTextField:
+                    id : otp
+                    hint_text: "OTP"
+                    icon_right: "eye-off"
+                    size_hint_x: None
+                    width: 220
+                    font_size: 18
+                    pos_hint: {"center_x": .5}
+                    disabled: True
+                    required: True
+                    mode: "fill"
+
+                MDFillRoundFlatButton:
+                    id : submit
+                    text: "SUBMIT"
+                    pos_hint: {"center_x": .5}
+                    font_size: 15
+                    md_bg_color: [35/255, 59/255, 54/255, 1]
+                    on_release: root.signin_process()
+                    disabled: True
+
+                MDLabel:
+                    id:error_label
+                    front_style: "Button"
+                    front_size: 15
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
